@@ -1,16 +1,17 @@
 
-const TILE_SIZE = 32;
-const MAP_NUM_ROWS = 11;
-const MAP_NUM_COLS = 15;
+
+const TILE_SIZE = 32;    // Default Tile Size in pixels
+const MAP_NUM_ROWS = 11; // Number of Rows
+const MAP_NUM_COLS = 15; // Number of Columns 
 
 
-const WINDOW_WIDTH = MAP_NUM_COLS * TILE_SIZE;
+const WINDOW_WIDTH = MAP_NUM_COLS * TILE_SIZE;   
 const WINDOW_HEIGHT = MAP_NUM_ROWS * TILE_SIZE;
 
 
 
 
-class Map {
+class Map {     // The Map. 1 is Walls. 0 is empty space for player movement
     constructor()
     {
         this.grid = [
@@ -32,7 +33,7 @@ class Map {
     }
 
 
-    hasWallAt(x, y) 
+    hasWallAt(x, y)  // A simple check to see there is a wall at a certain location
     {   
         if ( x < 0 || x > WINDOW_WIDTH || y < 0 || y > WINDOW_HEIGHT)
         {
@@ -67,17 +68,17 @@ class Map {
 }
 
 
-class Player {
+class Player {    // Player class
 
     constructor()
     {
-        this.x = WINDOW_WIDTH / 2;
-        this.y = WINDOW_HEIGHT / 2;
-        this.radius = 3;
+        this.x = WINDOW_WIDTH / 2;   // X location of player
+        this.y = WINDOW_HEIGHT / 2;  // Y location of player
+        this.radius = 3;            // Size of the player
         this.turnDirection = 0;  // - 1 if left, +1 if right
         this.walkDirection = 0;  // -1 if back, +1 if front
-        this.rotationAngle = Math.PI / 2; 
-        this.moveSpeed = 2.0;
+        this.rotationAngle = Math.PI / 2;   
+        this.moveSpeed = 2.0;       // Speed of the player
         this.rotationSpeed = 2 * (Math.PI / 180);
 
 
